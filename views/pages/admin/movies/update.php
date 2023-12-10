@@ -66,7 +66,6 @@
                 </div>
                 <div class="row g-2">
                     <select class="form-select" name="category">
-                        <option>Жанр</option>
                         <?php foreach ($categories as $category) { ?>
                             <option value="<?php echo $category->id() ?>" <?php echo $category->id() === $movie->categoryId() ? 'selected' : ''?>>
                                 <?php echo $category->name() ?>

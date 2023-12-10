@@ -6,7 +6,13 @@
  * @var \App\Kernel\Storage\StorageInterface $storage
  * @var \App\Models\Movie $movie
  * @var \App\Models\Category $category
+ * @var \App\Models\Category $category_name
  */
+if($auth->check()){
+    $is_admin = $auth->user()->is_admin();
+} else{
+    $is_admin = false;
+}
 ?>
 
 <?php $view->component('start'); ?>
@@ -72,13 +78,27 @@
                         <?php }?>
                     </div>
                     <div class="col-md-8">
+                        <?php if ($is_admin){?>
+                        <div class="dropdown d-flex justify-content-end">
+                            <button class="dropbtn">Действия</button>
+                            <div class="dropdown-content" style="position: absolute">
+                                <a class="btn btn-warning w-100 d-flex" href="/admin/movies/update?id=<?php echo $movie->id() ?>">Изменить</a>
+                                <form action="/admin/movies/destroy" method="post">
+                                    <input type="hidden" value="<?php echo $movie->id() ?>" name="id">
+                                    <button class="btn btn-warning w-100" type="submit">Удалить</button>
+                                </form>
+                            </div>
+                            <?php }?>
                         <div class="card-body">
                             <h1 class="card-title"><?php echo $movie->name() ?></h1>
+
                             <p class="card-text">Оценка <span class="badge bg-warning warn__badge"><?php echo $movie->avgRating() ?></span></p>
                             <p class="card-text"><b>Описание:</b> <br><?php echo $movie->description() ?></p>
-                            <p class="card-text">Жанр: </p>
+                            <p class="card-text">Жанр: <?php echo $category_name?></p>
                             <p class="card-text"><small class="text-body-secondary">Добавлен <?php echo $movie->createdAt() ?></small></p>
-                            <h4>Отзывы</h4>
+                            <?php if (!$movie->reviews()){?><h4>Отзывов нет</h4><?php }else{?>
+                                <h4>Отзывы</h4>
+                            <?php }?>
                             <div class="one-movie__reviews">
                                 <?php foreach ($movie->reviews() as $review) { ?>
                                     <?php $view->component('review_card', ['review' => $review]) ?>

@@ -24,10 +24,10 @@
         <table class="table table-dark table-hover">
             <thead>
             <tr>
-                <th scope="col">Превью</th>
-                <th scope="col">Название</th>
-                <th scope="col">Описание</th>
-                <th scope="col"></th>
+                <th scope="col" align="left">Превью</th>
+                <th scope="col" align="left">Название</th>
+                <th scope="col" align="left">Описание</th>
+                <th scope="col" align="left"></th>
             </tr>
             </thead>
             <tbody>
@@ -53,13 +53,16 @@
         <table class="table table-dark table-hover">
             <thead>
             <tr>
-                <th scope="col">Название</th>
+                <th scope="col" align="left">Название</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <?php
     foreach ($categories as $category) {
+        if ($category->name() == 'Без жанра'){
+            continue;
+        }
         $view->component('admin/category', ['category' => $category]);
     }
 ?>

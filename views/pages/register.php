@@ -8,7 +8,6 @@ $nameInput = $session->getFlash('nameInput') ?? null;
 $emailInput = $session->getFlash('emailInput') ?? null;
 $passwordInput = $session->getFlash('passwordInput') ?? null;
 $password_confirmationInput = $session->getFlash('password_confirmationInput') ?? null; ?>
-?>
 
 <?php $view->component('start'); ?>
     <main>

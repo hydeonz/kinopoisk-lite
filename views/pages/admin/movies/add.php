@@ -72,7 +72,7 @@
                     </select>
                     <?php if ($session->has('category')) { ?>
                         <div id="category" class="invalid-feedback">
-                            <?php echo '123123' ?>
+
                         </div>
                     <?php } ?>
                 </div>

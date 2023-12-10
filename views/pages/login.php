@@ -28,7 +28,7 @@ $passwordInput = $session->getFlash('passwordInput') ?? null;
                     class="form-control"
                     name="email"
                     id="floatingInput"
-                    placeholder="name@areaweb.su"
+                    placeholder="Email"
                     value="<?php echo $emailInput?>"
                 >
                 <label for="floatingInput">E-mail</label>
