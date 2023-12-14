@@ -107,7 +107,7 @@ class MovieController extends Controller
         $category_name = $this->db()->first('categories',['id'=>$movie->categoryId()]);
         $this->view('movie', [
             'movie' => $movie,
-            'category_name' => $category_name['name'],
+            'category_name' => $category_name['name'] ?? null,
         ], "Фильм - {$movie->name()}");
     }
     private function service(): MovieService

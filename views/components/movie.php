@@ -10,6 +10,6 @@
     <div class="card-body">
         <h5 class="card-title"><?php echo $movie->name() ?></h5>
         <p class="card-text">Оценка <span class="badge bg-warning warn__badge"><?php echo $movie->avgRating()?></span></p>
-        <p class="card-text"><?php echo substr($movie->description(), 0, 55)?>...</p>
+        <p class="card-text"><?php echo mb_substr($movie->description(), 0, 55)?>...</p>
     </div>
 </a>

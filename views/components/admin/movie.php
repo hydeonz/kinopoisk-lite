@@ -10,7 +10,7 @@
         <img width="50" src="<?php echo $storage->url($movie->preview()) ?>" alt="<?php echo $movie->name() ?>">
     </td>
     <td style="width: 200px;"><?php echo $movie->name() ?></td>
-    <td><span class="badge bg-warning warn__badge"><?php echo substr($movie->description(), 0, 51)?>...</span></td>
+    <td><span class="badge bg-warning warn__badge"><?php echo mb_substr($movie->description(), 0, 51)?>...</span></td>
     <td>
         <div class="dropdown d-flex justify-content-end">
             <button class="dropbtn ">Действия</button>

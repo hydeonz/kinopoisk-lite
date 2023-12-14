@@ -271,7 +271,8 @@ p {
     margin-top: 1rem !important
 }
 .card-img, .card-img-bottom, .card-img-top {
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 .card-img, .card-img-top {
     border-top-left-radius: var(--bs-card-inner-border-radius);
@@ -320,7 +321,8 @@ p {
 }
 .card-title {
     margin-bottom: var(--bs-card-title-spacer-y);
-    color: var(--bs-card-title-color)
+    color: var(--bs-card-title-color);
+    font-style: italic ;
 }
 .card-text:last-child {
     margin-bottom: 0
@@ -488,48 +490,7 @@ p {
     border-left: .3em solid transparent
 }
 
-.dropdown-menu {
-    --bs-dropdown-zindex: 1000;
-    --bs-dropdown-min-width: 10rem;
-    --bs-dropdown-padding-x: 0;
-    --bs-dropdown-padding-y: 0.5rem;
-    --bs-dropdown-spacer: 0.125rem;
-    --bs-dropdown-font-size: 1rem;
-    --bs-dropdown-color: var(--bs-body-color);
-    --bs-dropdown-bg: var(--bs-body-bg);
-    --bs-dropdown-border-color: var(--bs-border-color-translucent);
-    --bs-dropdown-border-radius: var(--bs-border-radius);
-    --bs-dropdown-border-width: var(--bs-border-width);
-    --bs-dropdown-inner-border-radius: calc(var(--bs-border-radius) - var(--bs-border-width));
-    --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
-    --bs-dropdown-divider-margin-y: 0.5rem;
-    --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    --bs-dropdown-link-color: var(--bs-body-color);
-    --bs-dropdown-link-hover-color: var(--bs-body-color);
-    --bs-dropdown-link-hover-bg: var(--bs-tertiary-bg);
-    --bs-dropdown-link-active-color: #fff;
-    --bs-dropdown-link-active-bg: #0d6efd;
-    --bs-dropdown-link-disabled-color: var(--bs-tertiary-color);
-    --bs-dropdown-item-padding-x: 1rem;
-    --bs-dropdown-item-padding-y: 0.25rem;
-    --bs-dropdown-header-color: #6c757d;
-    --bs-dropdown-header-padding-x: 1rem;
-    --bs-dropdown-header-padding-y: 0.5rem;
-    position: absolute;
-    z-index: var(--bs-dropdown-zindex);
-    display: none;
-    min-width: var(--bs-dropdown-min-width);
-    padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
-    margin: 0;
-    font-size: var(--bs-dropdown-font-size);
-    color: var(--bs-dropdown-color);
-    text-align: left;
-    list-style: none;
-    background-color: var(--bs-dropdown-bg);
-    background-clip: padding-box;
-    border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
-    border-radius: var(--bs-dropdown-border-radius)
-}
+
 .dropdown-item {
     display: block;
     width: 100%;
@@ -706,7 +667,7 @@ button, input, optgroup, select, textarea {
     color: var(--bs-secondary-color) !important
 }
 label {
-    display: inline-block
+    display: inline-block;
 }
 textarea.form-control {
     min-height: calc(1.5em + .75rem + calc(var(--bs-border-width) * 2))

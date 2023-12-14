@@ -8,6 +8,7 @@
  * @var \App\Models\Category $category
  * @var \App\Models\Category $category_name
  */
+$_POST();
 if($auth->check()){
     $is_admin = $auth->user()->is_admin();
 } else{
@@ -79,22 +80,25 @@ if($auth->check()){
                     </div>
                     <div class="col-md-8">
                         <?php if ($is_admin){?>
-                        <div class="dropdown d-flex justify-content-end">
-                            <button class="dropbtn">Действия</button>
-                            <div class="dropdown-content" style="position: absolute">
-                                <a class="btn btn-warning w-100 d-flex" href="/admin/movies/update?id=<?php echo $movie->id() ?>">Изменить</a>
-                                <form action="/admin/movies/destroy" method="post">
-                                    <input type="hidden" value="<?php echo $movie->id() ?>" name="id">
-                                    <button class="btn btn-warning w-100" type="submit">Удалить</button>
-                                </form>
-                            </div>
+                        <div class="d-flex justify-content-end m-3">
+                            <div class="dropdown" style="position: absolute; margin: 0 0 auto auto; height: max-content; width: max-content">
+                                <button  class="dropbtn" style="position: relative; height: max-content;">Действия</button>
+                                    <div class="dropdown-content" style="">
+                                        <a class="btn btn-warning w-100 d-flex" href="/admin/movies/update?id=<?php echo $movie->id() ?>">Изменить</a>
+                                        <form action="/admin/movies/destroy" method="post">
+                                            <input type="hidden" value="<?php echo $movie->id() ?>" name="id">
+                                            <button class="btn btn-warning w-100" type="submit"">Удалить</button>
+                                        </form>
+                                    </div>
+
+                                </div>
                             <?php }?>
                         <div class="card-body">
                             <h1 class="card-title"><?php echo $movie->name() ?></h1>
 
                             <p class="card-text">Оценка <span class="badge bg-warning warn__badge"><?php echo $movie->avgRating() ?></span></p>
                             <p class="card-text"><b>Описание:</b> <br><?php echo $movie->description() ?></p>
-                            <p class="card-text">Жанр: <?php echo $category_name?></p>
+                            <p class="card-text"> <?php if ($category_name){?>Жанр: <?php echo $category_name?></p> <?php }?>
                             <p class="card-text"><small class="text-body-secondary">Добавлен <?php echo $movie->createdAt() ?></small></p>
                             <?php if (!$movie->reviews()){?><h4>Отзывов нет</h4><?php }else{?>
                                 <h4>Отзывы</h4>
